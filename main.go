@@ -54,6 +54,8 @@ func main() {
 		buf := new(bytes.Buffer)
 		_, _ = buf.ReadFrom(result.Body)
 
+		fmt.Println("Image Process")
+
 		return c.Blob(200, "image/jpg", buf.Bytes())
 	})
 
