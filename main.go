@@ -51,20 +51,10 @@ func main() {
 				"message": c.Param("key"),
 			})
 		}
-		// datas := []byte(result.Body)
-		// testbytes := []byte
-		// buff := &aws.WriteAtBuffer{}
-
-		// buff.ReadFrom(result.Body)
 		buf := new(bytes.Buffer)
 		_, _ = buf.ReadFrom(result.Body)
 
 		return c.Blob(200, "image/jpg", buf.Bytes())
-
-		// return c.JSON(http.StatusOK, map[string]string{
-
-		// 	"message": c.Param("key"),
-		// })
 	})
 
 	e.Logger.Debug(e.Start(":8080"))
